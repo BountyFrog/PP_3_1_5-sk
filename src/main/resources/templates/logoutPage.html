@@ -1,0 +1,14 @@
+<div th:replace="~{default/head :: head}"></div>
+<title>Log Out page</title>
+<body>
+<main class="d-flex justify-content-center">
+    <div class="container-login d-flex justify-content-center m-5">
+        <form th:method="post" th:action="@{/logout}">
+            <div class="login-form-field flex-fill">
+                <button type="submit" class="btn btn-primary mt-1" style="width: 100%" value="logout">Log Out</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+<div th:replace="~{default/footer :: footer}"></div>

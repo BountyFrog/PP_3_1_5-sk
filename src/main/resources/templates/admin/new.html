@@ -1,0 +1,125 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:if="http://www.w3.org/1999/xhtml" lang="">
+<title>New user</title>
+<div th:replace="~{default/head :: head}"></div>
+<div th:replace="~{default/header :: header}"></div>
+<body>
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 p-0 m-0">
+            <div class="d-flex text-bg-primary rounded p-2 mt-1" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a class="text-decoration-none text-bg-primary" th:href="@{/admin}">Admin</a>
+            </div>
+            <div class="d-flex rounded p-2 mt-1">
+                <a class="text-decoration-none" th:href="@{/user}">User</a>
+            </div>
+        </div>
+        <div class="col-sm-10 bg-light">
+            <h1 class="d-flex">Admin panel</h1>
+            <div class="d-flex">
+                <div class="d-flex p-2">
+                    <a class="text-decoration-none" th:href="@{/admin/}">Admin table</a>
+                </div>
+                <div class="d-flex border p-2 rounded-top">
+                    <a class="text-decoration-none" th:href="@{/admin/new}">New User</a>
+                </div>
+            </div>
+            <table class="table border">
+                <thead>
+                <tr>
+                    <th style="background-color: lightgrey">
+                        <h2>All users</h2>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex border justify-content-center">
+                            <form th:method="POST" th:action="@{/admin/create}" th:object="${user}">
+                                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="username" class="fw-bold">First name</label>
+                                    <input autofocus type="text" class="form-control-sm" style="width: 100%"
+                                           placeholder="First name"
+                                           name="username" id="username"/>
+                                    <div style="color:red" th:if="${#fields.hasErrors('username')}"
+                                         th:errors="*{username}">
+                                        First name Error
+                                    </div>
+                                </div>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="lastname" class="fw-bold">First name</label>
+                                    <input autofocus type="text" class="form-control-sm" style="width: 100%"
+                                           placeholder="Last name"
+                                           name="lastname" id="lastname"/>
+                                    <div style="color:red" th:if="${#fields.hasErrors('lastname')}"
+                                         th:errors="*{lastname}">
+                                        Last name Error
+                                    </div>
+                                </div>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="age" class="fw-bold">Age</label>
+                                    <input autofocus type="text" class="form-control-sm" style="width: 100%"
+                                           placeholder="Age"
+                                           name="age" id="age"/>
+                                    <div style="color:red" th:if="${#fields.hasErrors('age')}"
+                                         th:errors="*{age}">
+                                        Age Error
+                                    </div>
+                                </div>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="email" class="fw-bold">Email</label>
+                                    <input autofocus type="email" class="form-control-sm" style="width: 100%"
+                                           placeholder="Email"
+                                           name="email" id="email"/>
+                                    <div style="color:red" th:if="${#fields.hasErrors('email')}"
+                                         th:errors="*{email}">
+                                        Email Error
+                                    </div>
+                                </div>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="password" class="fw-bold">Enter password: </label>
+                                    <input th:field="*{password}" type="password" class="form-control-sm"
+                                           style="width: 100%" placeholder="Password" name="password" id="password"/>
+                                    <div style="color:red" th:if="${#fields.hasErrors('password')}"
+                                         th:errors="*{password}">
+                                        Password Error
+                                    </div>
+                                </div>
+                                <div class="container login-form-field justify-content-center p-3"
+                                     style="text-align: center">
+                                    <label for="roles" class="fw-bold">Select roles (default - USER): </label>
+                                    <select id="roles"
+                                            multiple
+                                            th:object="${roles}"
+                                            th:field="${user.roles}"
+                                            class="form-control-sm"
+                                            style="width: 100%">
+                                        <option th:each="role : ${roles}"
+                                                th:value="${role.getId()}"
+                                                th:text="${role.toString()}">
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="login-form-field flex-fill">
+                                    <button type="submit" class="btn btn-primary mt-1" style="width: 100%"
+                                            value="Login">Add user
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<div th:replace="~{default/footer :: footer}"></div>
+</body>

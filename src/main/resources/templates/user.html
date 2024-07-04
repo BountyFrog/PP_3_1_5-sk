@@ -1,0 +1,67 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:if="http://www.w3.org/1999/xhtml" lang="">
+<title>User page</title>
+<div th:replace="~{default/head :: head}"></div>
+<div th:replace="~{default/header :: header}"></div>
+<body>
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 p-0 m-0">
+            <div class="d-flex rounded p-2 mt-1" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a class="text-decoration-none" th:href="@{/admin}">Admin</a>
+            </div>
+            <div class="d-flex text-bg-primary rounded p-2 mt-1">
+                <a class="text-decoration-none text-bg-primary" th:href="@{/user}">User</a>
+            </div>
+        </div>
+        <div class="col-sm-10 bg-light">
+            <h1 class="d-flex">User information page</h1>
+            <div class="d-flex">
+                <div class="d-flex border p-2 rounded-top">
+                    <a class="text-decoration-none" th:href="@{/user}">User table</a>
+                </div>
+            </div>
+            <table class="table border">
+                <thead>
+                <tr>
+                    <th style="background-color: lightgrey">
+                        <h2>About user</h2>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="container">
+                            <table class="table table-striped border-top">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>Roles</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="${user.getId()}"></td>
+                                    <td th:text="${user.getUsername()}"></td>
+                                    <td th:text="${user.getLastname()}"></td>
+                                    <td th:text="${user.getAge()}"></td>
+                                    <td th:text="${user.getEmail()}"></td>
+                                    <td th:text="${user.getRoles()}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<div th:replace="~{default/footer :: footer}"></div>
+</body>
