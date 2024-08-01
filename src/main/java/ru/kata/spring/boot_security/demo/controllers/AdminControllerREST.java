@@ -51,7 +51,7 @@ public class AdminControllerREST {
     }
 
     @PatchMapping(value = "/update")
-    public ResponseEntity<HttpStatus> update(@RequestBody @Valid User user) {
+    public ResponseEntity<HttpStatus> update(@RequestBody User user) {
         adminService.update(user.getId(), user);
         return ResponseEntity.ok(HttpStatus.OK);
     }

@@ -20,6 +20,7 @@ function fillModal(id, form) {
             if (form.elements.namedItem("password") != null) {
                 form.elements.namedItem("password").value = "";
             }
+
         })
         .catch(error => console.error('Ошибка:', error));
 }

@@ -11,7 +11,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="d-flex flex-column vh-100 p-0 m-0">
-<!--Шапка-->
+
 <nav class="navbar  navbar-dark bg-dark" th:object="${user}">
     <div class="navbar-brand mr-1">
         <span id="EmailHeader" class="font-weight-bolder"></span>
@@ -23,9 +23,9 @@
         <button class="btn btn-link text-secondary mb-0" type="submit">Log out</button>
     </form>
 </nav>
-<!--Основной контейнер-->
+
 <div class="container-fluid d-flex flex-fill p-0 h-100 justify-content-start">
-    <!--Панель слева-->
+
     <div class="d-none d-md-block bg-default col-2 px-0 pt-3 ">
         <nav class=" bg-default sidebar ">
             <ul class="nav flex-column nav-pills nav-fill text-left">

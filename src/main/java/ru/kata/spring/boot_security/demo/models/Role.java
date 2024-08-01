@@ -1,10 +1,8 @@
 package ru.kata.spring.boot_security.demo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,10 +15,6 @@ public class Role implements GrantedAuthority {
 
     @Column
     private String name;
-
-//    @JsonIgnore
-//    @ManyToMany(mappedBy = "roles")
-//    private List<User> users;
 
     @Override
     public String getAuthority() {
@@ -49,32 +43,6 @@ public class Role implements GrantedAuthority {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<User> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(List<User> users) {
-//        this.users = users;
-//    }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Role role = (Role) o;
-//        return id == role.id && Objects.equals(name, role.name) && Objects.equals(users, role.users);
-//    }
-
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, name, users);
-//    }
-
-//    @Override
-//    public String toString() {
-//        return name.replaceAll("^ROLE_", "");
-//    }
 
     @Override
     public boolean equals(Object o) {

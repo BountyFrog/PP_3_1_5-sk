@@ -1,0 +1,60 @@
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
+     aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Delete user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close" id="closeDelete">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form  name="deleteForm">
+                <div class="modal-body px-3 d-flex flex-column align-items-center">
+                    <h5>Вы уверены, что хотите удалить пользователя?</h5>
+                    <div class="d-flex flex-column align-items-center">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="idDeleteModal">ID</label>
+                        <input class="form-control" type="text"
+                               id="idDeleteModal" readonly
+                               name="id"
+                               placeholder="id">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="firstnameDeleteModal">First name</label>
+                        <input class="form-control" type="text"
+                               id="firstnameDeleteModal" readonly
+                               name="firstName"
+                               placeholder="First name">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="lastNameDeleteModal">Last name</label>
+                        <input class="form-control" type="text"
+                               id="lastNameDeleteModal" readonly
+                               name="lastName"
+                               placeholder="Last name">
+                        <label class="font-weight-bolder mb-0 mt-3" for="ageDeleteModal">Age</label>
+                        <input class="form-control" type="number"
+                               id="ageDeleteModal" readonly max="100"
+                               name="age"
+                               placeholder="Age">
+                        <label class="font-weight-bolder mb-0 mt-3" for="emailDeleteModal">Email</label>
+                        <input class="form-control" type="email"
+                               id="emailDeleteModal" readonly
+                               name="email"
+                               placeholder="Email">
+                        <label class="font-weight-bold mb-0 mt-3" for="rolesDeleteModal">Role</label>
+                        <select class="w-100 mb-3" multiple
+                                id="rolesDeleteModal"
+                                name="roles" required size="2" disabled>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

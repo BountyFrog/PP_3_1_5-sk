@@ -1,0 +1,66 @@
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog"
+     aria-labelledby="modalEditLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close" id="closeEdit">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form name="editForm">
+                <div class="modal-body px-3 d-flex flex-column align-items-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <label class="font-weight-bolder mb-0"
+                               for="idEditModal">ID</label>
+                        <input class="form-control" type="text"
+                               id="idEditModal" readonly
+                               name="id"
+                               placeholder="id">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="firstnameEditModal">First name</label>
+                        <input class="form-control" type="text"
+                               id="firstnameEditModal"
+                               name="firstName"
+                               placeholder="First name">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="lastNameEditModal">Last name</label>
+                        <input class="form-control" type="text"
+                               id="lastNameEditModal"
+                               name="lastName"
+                               placeholder="Last name">
+                        <label class="font-weight-bolder mb-0 mt-3" for="ageEditModal">Age</label>
+                        <input class="form-control" type="number"
+                               id="ageEditModal"
+                               name="age"
+                               placeholder="Age">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="emailEditModal">Email</label>
+                        <input class="form-control" type="email"
+                               id="emailEditModal"
+                               name="email"
+                               placeholder="Email">
+                        <label class="font-weight-bolder mb-0 mt-3"
+                               for="passwordEditModal">Password</label>
+                        <input class="form-control" type="password"
+                               minlength="1"
+                               name="password"
+                               id="passwordEditModal" placeholder="Password">
+                        <label class="font-weight-bold mb-0 mt-3" for="rolesEditModal">Role</label>
+                        <select class="w-100 mb-3" multiple
+                                id="rolesEditModal" required
+                                name="roles" size="3">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
