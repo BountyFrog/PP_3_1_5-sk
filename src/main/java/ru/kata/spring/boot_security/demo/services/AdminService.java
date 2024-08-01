@@ -10,10 +10,7 @@ import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Transactional
@@ -33,6 +30,10 @@ public class AdminService implements AdminServiceInterface {
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public Set<Role> findAllRoles() {
+        return new HashSet<>(roleRepository.findAll());
     }
 
     public User findOne(int id) {
@@ -55,10 +56,6 @@ public class AdminService implements AdminServiceInterface {
         List<Role> roles = new ArrayList<>();
         roles.add(roleRepository.findByName("ROLE_USER").orElse(null));
         user.setRoles(roles);
-    }
-
-    public List<Role> findAllRoles() {
-        return roleRepository.findAll();
     }
 
     @Transactional

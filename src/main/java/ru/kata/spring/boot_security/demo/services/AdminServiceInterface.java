@@ -4,6 +4,7 @@ import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
 
 import java.util.List;
+import java.util.Set;
 
 public interface AdminServiceInterface {
 
@@ -15,7 +16,7 @@ public interface AdminServiceInterface {
 
     void setRoleDefault(User user);
 
-    List<Role> findAllRoles();
+    Set<Role> findAllRoles();
 
     void update(int id, User user);
 
